@@ -1,10 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import router from './routes/productRoutes.js';
+import cors from "cors";
 
 const app = express();
 dotenv.config();
 app.use(express.json());
+app.use(cors())
 
 app.get('/', (req, res) => {
     console.log("Welcome to express")
@@ -12,9 +14,8 @@ app.get('/', (req, res) => {
  })
 
 
-
-
 app.use('/products', router);
+
 
 
 const PORT = process.env.PORT
