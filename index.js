@@ -1,15 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import router from './routes/productRoutes.js';
-import cors from 'cors';
+
 
 const app = express();
 dotenv.config();
 
 
-app.use(cors()); // CORS middleware comes first
-app.use(express.json()); // Body parser (if needed)
-app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     console.log("Welcome to express")
