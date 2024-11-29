@@ -1,14 +1,26 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import router from './routes/productRoutes.js';
 
+
 const app = express();
+dotenv.config();
+
+
 
 app.get('/', (req, res) => {
-    return res.status(200).send('HELLO WORLD')
-})
+    console.log("Welcome to express")
+    res.status(200).send('Welcome to express')
+ })
+
 
 app.use('/products', router);
 
-app.listen(5000, () => {
-    console.log('I AM LISTENING!')
+
+
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
+    console.log("Server Started", PORT);
 })
+
